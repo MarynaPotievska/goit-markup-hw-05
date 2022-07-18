@@ -86,6 +86,7 @@ header {
 
 .navigation-item {
   margin-right: var(--mrgn-main);
+  position: relative;
 }
 
 .navigation-item:last-child {
@@ -105,6 +106,17 @@ header {
 .navigation-link:focus,
 .current-link {
   color: var(--cl-accent);
+}
+
+.current-link::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 250%;
+  width: 100%;
+  height: 4px;
+  background-color: var(--cl-accent);
+  border-radius: 2px;
 }
 
 .header-contacts-list {
@@ -277,17 +289,42 @@ header {
   margin-bottom: var(--mrgn-main);
 }
 
-.services-list {
+.services-list {  
   display: flex;
   justify-content: center;
 }
 
 .services-item {
-  margin-right: var(--mrgn-secondary);
+  margin-right: var(--mrgn-secondary);  
 }
 
 .services-item:last-child {
   margin-right: 0;
+}
+
+.service-box {
+  position: relative;  
+}
+
+.service-photo {
+  display: block;
+}
+
+.service-name {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 370px;
+  height: 70px;  
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  letter-spacing: var(--lttr-spc-base);
+  color: var(--font-cl-accent);  
+  background-color: rgba(47, 48, 58, 0.8);
 }
 
 .team {
@@ -457,6 +494,40 @@ header {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.product-link:hover .product-card-thumb::before,
+.product-link:hover .product-desc,
+.product-link:focus .product-card-thumb::before,
+.product-link:focus .product-desc {
+  opacity: 1;
+}
+
+.product-card-thumb {
+  position: relative;
+  height: 294px;
+}
+
+.product-card-thumb::before {
+  display: block;
+  position: absolute;
+  content: '';  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+}
+
+.product-desc {
+  position: absolute;
+  top: 63px;
+  left: 24px;
+  width: 322px;
+  font-size: 18px;
+  line-height: calc(28 / 18);
+  letter-spacing: var(--lttr-spc-base);
+  color: var(--font-cl-accent);
+  opacity: 0;
+}
+
 .figurecaption {
   padding: 20px 24px;
   border-left: 1px solid #eeeeee;
@@ -562,4 +633,44 @@ header {
 .footer-social-link .social-icon-link:hover,
 .footer-social-link .social-icon-link:focus {
   background-color: var(--cl-accent);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--bg-cl-main);
+}
+
+.modal-btn {  
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-cl-main);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
 }

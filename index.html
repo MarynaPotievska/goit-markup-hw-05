@@ -69,7 +69,7 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button type="button" class="hero-button">Заказать услугу</button>
+          <button type="button" class="hero-button" data-modal-open>Заказать услугу</button>
         </div>
       </section>
 
@@ -134,28 +134,37 @@
           <h2 class="title">Чем мы занимаемся</h2>
           <ul class="services-list">
             <li class="services-item">
-              <img
+              <div class="service-box">
+                <img
                 src="./images/service1.jpg"
                 alt="Услуга 1"
                 width="370"
                 class="service-photo"
               />
+              <h3 class="service-name">Десктопные приложения</h3>
+              </div>
             </li>
             <li class="services-item">
-              <img
+              <div class="service-box">
+                <img
                 src="./images/service2.jpg"
                 alt="Услуга 2"
                 width="370"
                 class="service-photo"
               />
+              <h3 class="service-name">Мобильные приложения</h3>
+              </div>
             </li>
             <li class="services-item">
-              <img
+              <div class="service-box">
+                <img
                 src="./images/service3.jpg"
                 alt="Услуга 3"
                 width="370"
                 class="service-photo"
               />
+              <h3 class="service-name">Дизайнерские решения</h3>
+              </div>
             </li>
           </ul>
         </div>
@@ -451,5 +460,18 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-btn" data-modal-close>
+          <svg>
+            <use href="./images/sprite.svg#close-black"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
+
   </body>
 </html>
